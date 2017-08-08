@@ -1,0 +1,59 @@
+<style>
+
+	.wrap {border: 1px solid; width: 500px;}
+
+	#photoInput {
+		display: none;
+	}
+	
+	.img-circle {
+		width: 400px;
+		height: 210px;
+		border: 1px solid;
+		object-fit: cover;
+	}
+	
+	.addImg {
+		margin-top: 20px;
+		border: 0;
+		background: url("add-img.png") no-repeat 8px 8px #0c6eb9;
+		color: white;
+		text-transform: uppercase;
+		padding: 8px;
+		padding-left: 30px;
+		border-radius: 5px;
+	}
+</style>
+
+<div class="wrap">
+
+	<div>
+		<img src="" class="img-circle" id="theImage">
+	</div>
+
+	<input type="file" id="photoInput">
+
+	<button class="addImg">Доб. Изображение</button>
+
+</div>
+
+<script>
+
+var btn = document.querySelector(".addImg");
+var photoFile = document.getElementById("photoInput");
+
+btn.addEventListener('click', function() {
+	photoFile.click();
+})
+
+	var fileReader = new FileReader();
+		fileReader.addEventListener('load', function() {
+			theImage.src = this.result;
+		});
+
+		photoInput.addEventListener('change', function(e) {
+		var file = e.target.files[0];
+
+		fileReader.readAsDataURL(file);
+});
+</script>
